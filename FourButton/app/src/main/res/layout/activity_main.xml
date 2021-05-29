@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/nateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#939393"
+        android:text="네이트 홈페이지 열기" />
+
+    <Button
+        android:id="@+id/emergeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#65DA41"
+        android:text="911 응급전화 걸기"/>
+
+    <Button
+        android:id="@+id/galleryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EA3A24"
+        android:text="갤러리 열기" />
+
+    <Button
+        android:id="@+id/endBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FDF251"
+        android:text="끝내기" />
+</LinearLayout>
