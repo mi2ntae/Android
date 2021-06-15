@@ -1,6 +1,8 @@
 package com.example.gimalproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +24,7 @@ public class MyPage extends Activity {
     private View.OnClickListener onClickListener;
 
     private Button btn_logout, btn_modifyPWd, btn_save, btn_back;
-    private EditText et_name, et_phone;
-    private TextView text_pwd;
+    private EditText et_name, et_phone, et_pwd;
 
     private Account account;
 
@@ -50,8 +51,8 @@ public class MyPage extends Activity {
         this.et_name.setText(account.getName());
         this.et_phone = findViewById(R.id.mypage_et_phone);
         this.et_phone.setText(account.getPhone());
-        this.text_pwd = findViewById(R.id.mypage_text_pwd);
-        this.text_pwd.setText(account.getPwd());
+        this.et_pwd = findViewById(R.id.mypage_et_pwd);
+        this.et_pwd.setText(account.getPwd());
     }
 
     private class OnClickListener implements View.OnClickListener{
@@ -86,6 +87,7 @@ public class MyPage extends Activity {
                     }
                     account.setName(et_name.getText().toString());
                     account.setPhone(et_phone.getText().toString());
+                    account.setPwd(et_pwd.getText().toString());
                     fileAccounts += account.getId()+" "+account.getPwd()+" "+account.getName()+ " "+account.getPhone()+"\n";
                     file.delete();
                     File file2 = new File(getFilesDir().getAbsolutePath()+"/file.txt");
@@ -102,7 +104,17 @@ public class MyPage extends Activity {
                 setResult(RESULT_OK, outIntent);
                 finish();
             } else if (view == btn_modifyPWd) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(MyPage.this);
+                dlg.setMessage("비밀번호를 변경하시겠습니까?");
+                dlg.setNegativeButton("취소", null);
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        et_pwd.setFocusableInTouchMode(true);
+                    }
+                });
 
+                dlg.show();
             }
         }
     }
