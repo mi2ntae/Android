@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.a60171622_.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.a60171622_.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_home_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.example.a60171622_.SignIn"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_prime"
+            app:destination="@id/prime" />
+    </fragment>
+    <action android:id="@+id/action_global_home" app:destination="@id/home" />
+    <fragment
+        android:id="@+id/prime"
+        android:name="com.example.a60171622_.Prime"
+        android:label="fragment_prime"
+        tools:layout="@layout/fragment_prime" />
+</navigation>
