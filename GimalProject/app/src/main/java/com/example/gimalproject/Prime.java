@@ -61,7 +61,6 @@ public class Prime extends Activity {
         } else if(resultCode == RESULT_CANCELED){
             Toast.makeText(getApplicationContext(), "로그아웃합니다", Toast.LENGTH_SHORT).show();
             finish();
-
         }
     }
 
@@ -73,7 +72,9 @@ public class Prime extends Activity {
                 intent.putExtra("account", account);
                 startActivityForResult(intent, 0);
             } else if (view == btn_youself){
-
+                Intent intent = new Intent(getApplicationContext(), SelfCheck.class);
+                intent.putExtra("account", account);
+                startActivity(intent);
             }
         }
     }

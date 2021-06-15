@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/selfcheck_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="16dp"
+        android:text="자가진단문진표"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/selfcheck_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="108dp"
+        android:text="현재 발열 증상이 있다."
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/selfcheck_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="72dp"
+        android:text="최근 1년 이내에 해외\n여행을 간 적이 있다."
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selfcheck_text1" />
+
+    <TextView
+        android:id="@+id/selfcheck_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="76dp"
+        android:text="코로나10 백신 접종을 하였다."
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selfcheck_text2" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="96dp"
+        android:orientation="horizontal"
+        android:id="@+id/selfcheck_rgroup1"
+        app:layout_constraintStart_toEndOf="@+id/selfcheck_text1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예"
+            tools:layout_editor_absoluteX="202dp"
+            tools:layout_editor_absoluteY="116dp" />
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아니요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="116dp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal"
+        android:id="@+id/selfcheck_rgroup2"
+        app:layout_constraintStart_toEndOf="@+id/selfcheck_text2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예"
+            tools:layout_editor_absoluteX="202dp"
+            tools:layout_editor_absoluteY="116dp" />
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아니요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="116dp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="300dp"
+        android:orientation="horizontal"
+        android:id="@+id/selfcheck_rgroup3"
+        app:layout_constraintStart_toEndOf="@+id/selfcheck_text3"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예"
+            tools:layout_editor_absoluteX="202dp"
+            tools:layout_editor_absoluteY="116dp" />
+
+        <RadioButton
+            android:id="@+id/selfcheck_rbtn_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아니요"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="116dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/selfcheck_btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="452dp"
+        android:text="저장하기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/selfcheck_btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="452dp"
+        android:text="뒤로 가기"
+        app:layout_constraintStart_toEndOf="@+id/selfcheck_btn_save"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

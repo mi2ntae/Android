@@ -27,7 +27,6 @@ public class MyPage extends Activity {
     private EditText et_name, et_phone, et_pwd;
 
     private Account account;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +58,16 @@ public class MyPage extends Activity {
         @Override
         public void onClick(View view) {
             if (view == btn_logout) {
-                finish();
+                AlertDialog.Builder dlg = new AlertDialog.Builder(MyPage.this);
+                dlg.setMessage("로그아웃 하시겠습니까?");
+                dlg.setNegativeButton("취소", null);
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
+                dlg.show();
             } else if (view == btn_back) {
                 Intent outIntent = new Intent(getApplicationContext(), Prime.class);
                 outIntent.putExtra("logout", 0);
@@ -113,7 +121,6 @@ public class MyPage extends Activity {
                         et_pwd.setFocusableInTouchMode(true);
                     }
                 });
-
                 dlg.show();
             }
         }

@@ -28,6 +28,9 @@
         <activity android:name=".MyPage" android:label="my">
 
         </activity>
+        <activity android:name=".SelfCheck" android:label="sc">
+
+        </activity>
     </application>
 
 </manifest>

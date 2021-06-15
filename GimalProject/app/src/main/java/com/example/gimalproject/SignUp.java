@@ -26,6 +26,7 @@ public class SignUp extends Activity {
     private Button btn_check, btn_back;
     private EditText et_id, et_pwd, et_name, et_phone;
 
+    private Account account;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class SignUp extends Activity {
         @Override
         public void onClick(View view) {
             if (view == btn_check) {
-                Account account = new Account();
+                account = new Account();
                 account.setId(et_id.getText().toString());
                 account.setPwd(et_pwd.getText().toString());
                 account.setName(et_name.getText().toString());
@@ -63,15 +64,34 @@ public class SignUp extends Activity {
 
                 String saveAccount = account.getId()+" "+account.getPwd()+" "+account.getName()+" "+account.getPhone()+"\n";
                 try{
+                    File infile = new File(getFilesDir().getAbsolutePath()+"/file.txt");
+                    FileReader inreader = new FileReader(infile);
+                    BufferedReader bf = new BufferedReader(inreader);
+                    String inner = "";
+                    while (true) {
+                        String k = bf.readLine();
+                        if (k == null){
+                            break;
+                        }
+                        inner += k;
+                    }
+                    bf.close();
                     File file = new File(getFilesDir().getAbsolutePath()+"/file.txt");
                     FileWriter fileWriter = new FileWriter(file);
                     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    bufferedWriter.append(saveAccount);
+                    bufferedWriter.append(saveAccount+inner);
                     bufferedWriter.close();
+
+                    File file2 = new File(getFilesDir().getAbsolutePath()+"/"+account.getId()+"self.txt");
+                    FileWriter fileWriter2 = new FileWriter(file2);
+                    BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
+                    bufferedWriter2.append("0 0 0\n");
+                    bufferedWriter2.close();
                     Toast.makeText(getApplicationContext(), saveAccount+"가입 성공", Toast.LENGTH_SHORT).show();
                 }catch (IOException e){
                     Toast.makeText(getApplicationContext(), "회원가입 파일 경로 실패", Toast.LENGTH_SHORT).show();
                 }
+                finish();
             } else if (view == btn_back){
                 finish();
             }
