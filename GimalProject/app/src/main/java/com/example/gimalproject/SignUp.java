@@ -1,20 +1,30 @@
 package com.example.gimalproject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class SignUp extends Activity {
     private View.OnClickListener onClickListener;
 
     private Button btn_check, btn_back;
-    private EditText et_id, et_pwd, et_name, et_phone, et_numid;
-
+    private EditText et_id, et_pwd, et_name, et_phone;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,14 +42,36 @@ public class SignUp extends Activity {
         this.et_pwd = findViewById(R.id.signup_et_pwd);
         this.et_name = findViewById(R.id.signup_et_name);
         this.et_phone = findViewById(R.id.signup_et_phone);
-        this.et_numid = findViewById(R.id.signup_et_numid);
     }
 
     private class OnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            if (view == btn_check){
-                finish();
+            if (view == btn_check) {
+                Account account = new Account();
+                account.setId(et_id.getText().toString());
+                account.setPwd(et_pwd.getText().toString());
+                account.setName(et_name.getText().toString());
+                account.setPhone(et_phone.getText().toString());
+
+                if (account.getId().equals("") || account.getPwd().equals("")){
+                    if (account.getName().equals("") || account.getPhone().equals("")){
+                        Toast.makeText(getApplicationContext(), "모든 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                String saveAccount = account.getId()+" "+account.getPwd()+" "+account.getName()+" "+account.getPhone()+"\n";
+                try{
+                    File file = new File(getFilesDir().getAbsolutePath()+"/file.txt");
+                    FileWriter fileWriter = new FileWriter(file);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    bufferedWriter.append(saveAccount);
+                    bufferedWriter.close();
+                    Toast.makeText(getApplicationContext(), saveAccount+"가입 성공", Toast.LENGTH_SHORT).show();
+                }catch (IOException e){
+                    Toast.makeText(getApplicationContext(), "회원가입 파일 경로 실패", Toast.LENGTH_SHORT).show();
+                }
             } else if (view == btn_back){
                 finish();
             }

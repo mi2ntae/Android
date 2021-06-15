@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -81,18 +82,6 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_text_name"
         app:layout_constraintVertical_bias="0.125" />
 
-    <TextView
-        android:id="@+id/signup_text_numid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="48dp"
-        android:text="주민등록번호"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_text_phone" />
-
     <EditText
         android:id="@+id/signup_et_name"
         android:layout_width="wrap_content"
@@ -119,19 +108,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_et_name" />
 
-    <EditText
-        android:id="@+id/signup_et_numid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="주민등록번호를 입력하세요"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_et_phone" />
-
     <TextView
         android:id="@+id/signup_text_id"
         android:layout_width="wrap_content"
@@ -148,21 +124,21 @@
         android:id="@+id/signup_btn_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="508dp"
         android:text="가입하기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_text_numid" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signup_btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="508dp"
         android:text="뒤로가기"
         app:layout_constraintStart_toEndOf="@+id/signup_btn_check"
-        app:layout_constraintTop_toBottomOf="@+id/signup_text_numid" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
