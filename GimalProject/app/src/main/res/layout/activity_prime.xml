@@ -65,16 +65,7 @@
                         android:id="@+id/tab2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:baselineAligned="true"
                         android:orientation="vertical">
-                        <LinearLayout
-                            android:id="@+id/tab22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:baselineAligned="true"
-                            android:orientation="vertical">
-                        </LinearLayout>
-
                     </LinearLayout>
                 </FrameLayout>
 

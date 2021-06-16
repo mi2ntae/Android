@@ -90,7 +90,7 @@ public class MyPage extends Activity {
                         if (a[0].equals(account.getId()) && a[1].equals(account.getPwd())) {
 
                         } else {
-                            fileAccounts += accountData;
+                            fileAccounts += accountData+"\n";
                         }
                     }
                     account.setName(et_name.getText().toString());

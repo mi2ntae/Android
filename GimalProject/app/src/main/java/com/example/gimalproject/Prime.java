@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.LinearLayout;
@@ -53,7 +54,7 @@ public class Prime extends Activity {
         Intent intent = getIntent();
         account = (Account) intent.getSerializableExtra("account");
 
-        this.tab22 = findViewById(R.id.tab22);
+        this.tab22 = findViewById(R.id.tab2);
 
         this.label = findViewById(R.id.prime_text_label);
         this.label.setText("환영합니다 "+account.getName()+"고객님");
@@ -75,7 +76,8 @@ public class Prime extends Activity {
             @Override
             public void onTabChanged(String s) {
                 if (s.equals("tab2")){
-                    tab22.removeAllViews();
+                    tab22.removeAllViewsInLayout();
+                    tab22.setOrientation(LinearLayout.VERTICAL);
                     ArrayList<String> inner = new ArrayList<String>();
                     try {
                         File infile = new File(getFilesDir().getAbsolutePath()+"/"+account.getId()+"resfile.txt");
@@ -97,7 +99,9 @@ public class Prime extends Activity {
                         text.setText(date);
                         text.setTextSize(20);
                         text.setTextColor(Color.BLACK);
-                        text.setGravity(Gravity.CENTER);
+                        LinearLayout.LayoutParams a = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        a.gravity = Gravity.CENTER;
+                        text.setLayoutParams(a);
                         registerForContextMenu(text);
                         tab22.addView(text);
                     }
@@ -130,7 +134,7 @@ public class Prime extends Activity {
                                 if (k == null){
                                     break;
                                 }
-                                inner += k;
+                                inner += k+"\n";
                             }
                             bf.close();
 
