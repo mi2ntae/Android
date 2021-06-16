@@ -87,6 +87,12 @@ public class SignUp extends Activity {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
                     bufferedWriter2.append("0 0 0\n");
                     bufferedWriter2.close();
+
+                    File file3 = new File(getFilesDir().getAbsolutePath()+"/"+account.getId()+"resfile.txt");
+                    FileWriter fileWriter3 = new FileWriter(file3);
+                    BufferedWriter bufferedWriter3 = new BufferedWriter(fileWriter3);
+                    bufferedWriter.close();
+
                     Toast.makeText(getApplicationContext(), saveAccount+"가입 성공", Toast.LENGTH_SHORT).show();
                 }catch (IOException e){
                     Toast.makeText(getApplicationContext(), "회원가입 파일 경로 실패", Toast.LENGTH_SHORT).show();

@@ -12,8 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class SelfCheck extends Activity {
@@ -24,7 +26,7 @@ public class SelfCheck extends Activity {
     private RadioButton rbtn_1, rbtn_2, rbtn_3, rbtn_4, rbtn_5, rbtn_6;
 
     private Account account;
-    private String[] abc = {"0", "0", "0"};
+    private String[] abc;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +82,33 @@ public class SelfCheck extends Activity {
             if (view == btn_back){
                 finish();
             } else if (view == btn_save){
-
+                String b1, b2, b3;
+                if (rGroup1.getCheckedRadioButtonId() == rbtn_1.getId()){
+                    b1 = "1";
+                } else {
+                    b1 = "0";
+                }
+                if (rGroup2.getCheckedRadioButtonId() == rbtn_3.getId()){
+                    b2 = "1";
+                } else {
+                    b2 = "0";
+                }
+                if (rGroup3.getCheckedRadioButtonId() == rbtn_5.getId()){
+                    b3 = "1";
+                } else {
+                    b3 = "0";
+                }
+                try{
+                    File file2 = new File(getFilesDir().getAbsolutePath()+"/"+account.getId()+"self.txt");
+                    FileWriter fileWriter2 = new FileWriter(file2);
+                    BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
+                    bufferedWriter2.append(b1+" "+b2+" "+b3+"\n");
+                    bufferedWriter2.close();
+                } catch (IOException e){
+                    Toast.makeText(getApplicationContext(), "파일을 못 찾겠어", Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(getApplicationContext(), b1+" "+b2+" "+b3+"로 저장", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
     }
